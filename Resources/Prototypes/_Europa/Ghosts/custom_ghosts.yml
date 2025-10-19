@@ -81,3 +81,10 @@
   ckey: trest100
   sprite: _Europa/Ghosts/trest100.rsi
   alpha: 0.8
+
+# dngcher
+- type: customGhost
+  id: dngcher-ghost
+  ckey: dngcher
+  sprite: _Europa/Ghosts/dngcher.rsi
+  alpha: 1
