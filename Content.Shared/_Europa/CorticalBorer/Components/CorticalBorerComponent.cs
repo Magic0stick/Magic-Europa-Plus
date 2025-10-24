@@ -31,7 +31,7 @@ public sealed partial class CorticalBorerComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public int ChemicalGenerationRate = 4;
+    public int ChemicalGenerationRate = 3;
 
     /// <summary>
     /// Max Chemicals that can be held
