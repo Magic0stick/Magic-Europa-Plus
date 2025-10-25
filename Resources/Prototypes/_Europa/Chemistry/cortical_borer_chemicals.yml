@@ -127,3 +127,9 @@
   id: borerUranium
   cost: 12
   reagent: Uranium
+
+- type: borerChemical
+  id: borerPhalanximine
+  cost: 20
+  reagent: Phalanximine
+  
