@@ -19,6 +19,11 @@
   reagent: DexalinPlus
 
 - type: borerChemical
+  id: borerArithrazine
+  cost: 12
+  reagent: Arithrazine
+
+- type: borerChemical
   id: borerSaline
   cost: 5
   reagent: Saline
