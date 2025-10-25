@@ -45,7 +45,7 @@ namespace Content.Server._Lavaland.Procedural.Systems;
 
 public sealed partial class LavalandSystem : EntitySystem
 {
-    public bool LavalandEnabled = true;
+    public bool LavalandEnabled = false; // ЖИТЬ ЖИТЬ
 
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;

@@ -529,7 +529,7 @@ public sealed class ArrivalsSystem : EntitySystem
                 if (xform.MapUid != arrivalsXform.MapUid)
                 {
                     if (arrivals.IsValid())
-                        _shuttles.FTLToDock(uid, shuttle, arrivals, priorityTag: "DockArrivals", ignored: true, deletedTrash: true);
+                        _shuttles.FTLToDock(uid, shuttle, arrivals, priorityTag: "DockArrivals", ignored: false, deletedTrash: true); // Europa-Shit
 
                     comp.NextArrivalsTime = _timing.CurTime + TimeSpan.FromSeconds(tripTime);
                 }
@@ -539,7 +539,7 @@ public sealed class ArrivalsSystem : EntitySystem
                     var targetGrid = _station.GetLargestGrid(comp.Station);
 
                     if (targetGrid != null)
-                        _shuttles.FTLToDock(uid, shuttle, targetGrid.Value, priorityTag: "DockArrivals", ignored: true, deletedTrash: true);
+                        _shuttles.FTLToDock(uid, shuttle, targetGrid.Value, priorityTag: "DockArrivals", ignored: false, deletedTrash: true); // Europa-Shit
 
                     // The ArrivalsCooldown includes the trip there, so we only need to add the time taken for
                     // the trip back.
@@ -667,7 +667,7 @@ public sealed class ArrivalsSystem : EntitySystem
             EnsureComp<BlockBuildGridComponent>(shuttle.Value);
             EnsureComp<ImmortalGridComponent>(shuttle.Value);
             _shuttles.FTLToDock(component.Shuttle, shuttleComp, arrivals, hyperspaceTime: RoundStartFTLDuration,
-                priorityTag: "DockArrivals", ignored: true, deletedTrash: true);
+                priorityTag: "DockArrivals", ignored: false, deletedTrash: true); // Europa-Shit
             arrivalsComp.NextTransfer = _timing.CurTime + TimeSpan.FromSeconds(_cfgManager.GetCVar(CCVars.ArrivalsCooldown));
         }
 

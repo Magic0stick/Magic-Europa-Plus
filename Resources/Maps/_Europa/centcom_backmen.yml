@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/21/2025 11:45:33
-  entityCount: 10731
+  time: 10/25/2025 17:42:24
+  entityCount: 10739
 maps:
 - 1
 grids:
@@ -98,12 +98,10 @@ entities:
     - type: GridTree
     - type: Broadphase
     - type: OccluderTree
-    - type: Parallax
-      parallax: AvriteStation
   - uid: 2
     components:
     - type: MetaData
-      name: Станция ЦентКом
+      name: Станция ЦК
     - type: Transform
       pos: -47,-52
       parent: 1
@@ -10060,8 +10058,9 @@ entities:
     - type: FTLDrive
   - uid: 10313
     components:
+    - type: CentCommShuttle
     - type: MetaData
-      name: Шаттл ПЦК
+      name: Шаттл ОЦК
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -62.0176,16
@@ -11768,7 +11767,7 @@ entities:
       pos: 16.5,75.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -120457.43
+      secondsUntilStateChange: -120639.3
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11940,7 +11939,7 @@ entities:
       pos: 68.5,79.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -122642.99
+      secondsUntilStateChange: -122824.86
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12245,9 +12244,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 32.5,104.5
       parent: 2
-    - type: GridFill
-      addComponents: []
-      path: /Maps/Corvax/Shuttles/ert_corvaxcentcomm.yml
   - uid: 162
     components:
     - type: Transform
@@ -31062,7 +31058,7 @@ entities:
       pos: 1.5,62.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -123047.86
+      secondsUntilStateChange: -123229.73
       state: Opening
   - uid: 3507
     components:
@@ -31695,7 +31691,7 @@ entities:
       pos: 70.5,101.5
       parent: 2
     - type: NavMapBeacon
-      text: Стыковка ПЦК
+      text: Стыковка ОЦК
     missingComponents:
     - WarpPoint
   - uid: 3572
@@ -35743,7 +35739,7 @@ entities:
       pos: 0.5,-3.5
       parent: 10313
     - type: FaxMachine
-      name: Шаттл ПЦК
+      name: Шаттл ОЦК
 - proto: FaxMachineCentcom
   entities:
   - uid: 4200
@@ -38830,7 +38826,7 @@ entities:
     - type: Transform
       pos: 91.393036,65.64743
       parent: 2
-- proto: FoodDonutJellySlugcat
+- proto: FoodDonutJellyScurret
   entities:
   - uid: 4483
     components:
@@ -67378,6 +67374,50 @@ entities:
     components:
     - type: Transform
       pos: 61.5,51.5
+      parent: 2
+- proto: SpawnPointNanotrasenCentcommInspector
+  entities:
+  - uid: 10099
+    components:
+    - type: Transform
+      pos: 62.5,80.5
+      parent: 2
+  - uid: 10100
+    components:
+    - type: Transform
+      pos: 62.5,77.5
+      parent: 2
+  - uid: 10101
+    components:
+    - type: Transform
+      pos: 64.5,80.5
+      parent: 2
+  - uid: 10102
+    components:
+    - type: Transform
+      pos: 64.5,77.5
+      parent: 2
+- proto: SpawnPointNanotrasenCentcommOfficial
+  entities:
+  - uid: 10103
+    components:
+    - type: Transform
+      pos: 62.5,79.5
+      parent: 2
+  - uid: 10104
+    components:
+    - type: Transform
+      pos: 62.5,78.5
+      parent: 2
+  - uid: 10105
+    components:
+    - type: Transform
+      pos: 64.5,79.5
+      parent: 2
+  - uid: 10106
+    components:
+    - type: Transform
+      pos: 64.5,78.5
       parent: 2
 - proto: SpawnVehicleChairOfficeDark
   entities:
