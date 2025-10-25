@@ -631,6 +631,7 @@
         ratios: # DeltaV no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0
+  evaporationSpeed: 1
 
 - type: reagent
   id: Ice
