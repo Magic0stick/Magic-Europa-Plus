@@ -132,4 +132,18 @@
   id: borerPhalanximine
   cost: 20
   reagent: Phalanximine
-  
+
+- type: borerChemical
+  id: borerArithrozine
+  cost: 12
+  reagent: Arithrozine
+
+- type: borerChemical
+  id: borerTranexamicAcid
+  cost: 10
+  reagent: TranexamicAcid
+
+- type: borerChemical
+  id: borerSigynate
+  cost: 15
+  reagent: Sigynate
