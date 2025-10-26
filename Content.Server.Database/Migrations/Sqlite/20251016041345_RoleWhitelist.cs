@@ -11,217 +11,59 @@ namespace Content.Server.Database.Migrations.Sqlite
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_role_whitelists_player_player_user_id",
-                table: "role_whitelists");
+            migrationBuilder.Sql(@"
+        DROP TABLE IF EXISTS role_whitelists;
+    ");
 
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_role_whitelists",
-                table: "role_whitelists");
+            migrationBuilder.Sql(@"
+        CREATE TABLE IF NOT EXISTS role_whitelist (
+            role_whitelist_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            player_id TEXT NOT NULL,
+            first_time_added TEXT NOT NULL,
+            first_time_added_by TEXT NOT NULL,
+            how_many_times_added INTEGER NOT NULL DEFAULT 0,
+            in_whitelist INTEGER NOT NULL DEFAULT 0,
+            last_time_added TEXT NOT NULL,
+            last_time_added_by TEXT NOT NULL,
+            last_time_removed TEXT NULL,
+            last_time_removed_by TEXT NULL,
+            FOREIGN KEY (player_id) REFERENCES player (user_id) ON DELETE CASCADE
+        );
+    ");
 
-            migrationBuilder.DropColumn(
-                name: "player_user_id",
-                table: "role_whitelists");
+            migrationBuilder.Sql(@"
+        CREATE TABLE IF NOT EXISTS role_whitelist_log (
+            role_whitelist_log_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            admin_id TEXT NOT NULL,
+            player_id TEXT NOT NULL,
+            role_whitelist_action TEXT NOT NULL,
+            time TEXT NOT NULL
+        );
+    ");
 
-            migrationBuilder.DropColumn(
-                name: "role_id",
-                table: "role_whitelists");
-
-            migrationBuilder.RenameTable(
-                name: "role_whitelists",
-                newName: "role_whitelist");
-
-            migrationBuilder.AddColumn<int>(
-                name: "role_whitelist_id",
-                table: "role_whitelist",
-                type: "INTEGER",
-                nullable: false,
-                defaultValue: 0)
-                .Annotation("Sqlite:Autoincrement", true);
-
-            migrationBuilder.AddColumn<DateTime>(
-                name: "first_time_added",
-                table: "role_whitelist",
-                type: "timestamp with time zone",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
-            migrationBuilder.AddColumn<Guid>(
-                name: "first_time_added_by",
-                table: "role_whitelist",
-                type: "uuid",
-                nullable: false,
-                defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
-
-            migrationBuilder.AddColumn<int>(
-                name: "how_many_times_added",
-                table: "role_whitelist",
-                type: "integer",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.AddColumn<bool>(
-                name: "in_whitelist",
-                table: "role_whitelist",
-                type: "boolean",
-                nullable: false,
-                defaultValue: false);
-
-            migrationBuilder.AddColumn<DateTime>(
-                name: "last_time_added",
-                table: "role_whitelist",
-                type: "timestamp with time zone",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
-            migrationBuilder.AddColumn<Guid>(
-                name: "last_time_added_by",
-                table: "role_whitelist",
-                type: "uuid",
-                nullable: false,
-                defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
-
-            migrationBuilder.AddColumn<DateTime>(
-                name: "last_time_removed",
-                table: "role_whitelist",
-                type: "timestamp with time zone",
-                nullable: true);
-
-            migrationBuilder.AddColumn<Guid>(
-                name: "last_time_removed_by",
-                table: "role_whitelist",
-                type: "uuid",
-                nullable: true);
-
-            migrationBuilder.AddColumn<Guid>(
-                name: "player_id",
-                table: "role_whitelist",
-                type: "uuid",
-                nullable: false,
-                defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_role_whitelist",
-                table: "role_whitelist",
-                column: "role_whitelist_id");
-
-            migrationBuilder.CreateTable(
-                name: "role_whitelist_log",
-                columns: table => new
-                {
-                    role_whitelist_log_id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    admin_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    player_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    role_whitelist_action = table.Column<string>(type: "text", nullable: false),
-                    time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_role_whitelist_log", x => x.role_whitelist_log_id);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_role_whitelist_player_id",
-                table: "role_whitelist",
-                column: "player_id",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_role_whitelist_log_admin_id",
-                table: "role_whitelist_log",
-                column: "admin_id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_role_whitelist_log_player_id",
-                table: "role_whitelist_log",
-                column: "player_id");
+            migrationBuilder.Sql(@"
+        CREATE UNIQUE INDEX IF NOT EXISTS ""IX_role_whitelist_player_id"" ON role_whitelist (player_id);
+        CREATE INDEX IF NOT EXISTS ""IX_role_whitelist_log_admin_id"" ON role_whitelist_log (admin_id);
+        CREATE INDEX IF NOT EXISTS ""IX_role_whitelist_log_player_id"" ON role_whitelist_log (player_id);
+    ");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "role_whitelist_log");
+            migrationBuilder.Sql(@"
+        DROP TABLE IF EXISTS role_whitelist_log;
+        DROP TABLE IF EXISTS role_whitelist;
+    ");
 
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_role_whitelist",
-                table: "role_whitelist");
-
-            migrationBuilder.DropIndex(
-                name: "IX_role_whitelist_player_id",
-                table: "role_whitelist");
-
-            migrationBuilder.DropColumn(
-                name: "role_whitelist_id",
-                table: "role_whitelist");
-
-            migrationBuilder.DropColumn(
-                name: "first_time_added",
-                table: "role_whitelist");
-
-            migrationBuilder.DropColumn(
-                name: "first_time_added_by",
-                table: "role_whitelist");
-
-            migrationBuilder.DropColumn(
-                name: "how_many_times_added",
-                table: "role_whitelist");
-
-            migrationBuilder.DropColumn(
-                name: "in_whitelist",
-                table: "role_whitelist");
-
-            migrationBuilder.DropColumn(
-                name: "last_time_added",
-                table: "role_whitelist");
-
-            migrationBuilder.DropColumn(
-                name: "last_time_added_by",
-                table: "role_whitelist");
-
-            migrationBuilder.DropColumn(
-                name: "last_time_removed",
-                table: "role_whitelist");
-
-            migrationBuilder.DropColumn(
-                name: "last_time_removed_by",
-                table: "role_whitelist");
-
-            migrationBuilder.DropColumn(
-                name: "player_id",
-                table: "role_whitelist");
-
-            migrationBuilder.RenameTable(
-                name: "role_whitelist",
-                newName: "role_whitelists");
-
-            migrationBuilder.AddColumn<Guid>(
-                name: "player_user_id",
-                table: "role_whitelists",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
-
-            migrationBuilder.AddColumn<string>(
-                name: "role_id",
-                table: "role_whitelists",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_role_whitelists",
-                table: "role_whitelists",
-                columns: new[] { "player_user_id", "role_id" });
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_role_whitelists_player_player_user_id",
-                table: "role_whitelists",
-                column: "player_user_id",
-                principalTable: "player",
-                principalColumn: "user_id",
-                onDelete: ReferentialAction.Cascade);
+            migrationBuilder.Sql(@"
+        CREATE TABLE IF NOT EXISTS role_whitelists (
+            player_user_id TEXT NOT NULL,
+            role_id TEXT NOT NULL,
+            PRIMARY KEY (player_user_id, role_id),
+            FOREIGN KEY (player_user_id) REFERENCES player (user_id) ON DELETE CASCADE
+        );
+    ");
         }
     }
 }

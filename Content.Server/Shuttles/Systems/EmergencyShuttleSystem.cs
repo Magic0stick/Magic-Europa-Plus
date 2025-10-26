@@ -354,7 +354,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
          if (!Resolve(stationUid, ref stationShuttle))
             return null;
 
-         if (!TryComp<TransformComponent>(stationShuttle.EmergencyShuttle, out var xform) || // Sunrise-Edit
+         if (!TryComp<TransformComponent>(stationShuttle.EmergencyShuttle, out var xform) ||
              !TryComp<ShuttleComponent>(stationShuttle.EmergencyShuttle, out var shuttle))
          {
              Log.Error($"Attempted to call an emergency shuttle for an uninitialized station? Station: {ToPrettyString(stationUid)}. Shuttle: {ToPrettyString(stationShuttle.EmergencyShuttle)}");
@@ -381,7 +381,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
          }
 
          ShuttleDockResultType resultType;
-         if (_shuttle.TryFTLDock(stationShuttle.EmergencyShuttle.Value, shuttle, targetGrid.Value, out var config, DockTag, true, true)) // Sunrise-Edit
+         if (_shuttle.TryFTLDock(stationShuttle.EmergencyShuttle.Value, shuttle, targetGrid.Value, out var config, DockTag, true, true))
          {
              _logger.Add(
                  LogType.EmergencyShuttle,
@@ -647,12 +647,8 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         component.MapEntity = mapUid;
         component.Entity = uid;
 
-        var restricted = new RestrictedRangeComponent
-        {
-            Origin = new Vector2(0, 0),
-            Range = 45,
-        };
-        AddComp(mapUid, restricted);
+        var restricted = EnsureComp<RestrictedRangeComponent>(mapUid);
+        restricted.Range = 45;
 
         _mapSystem.InitializeMap(mapId);
     }
@@ -671,7 +667,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         return maps;
     }
 
-   private void AddEmergencyShuttle(Entity<StationEmergencyShuttleComponent?, StationTransitHubComponent?> ent) // Sunrise-edit
+   private void AddEmergencyShuttle(Entity<StationEmergencyShuttleComponent?, StationTransitHubComponent?> ent)
     {
         if (!Resolve(ent.Owner, ref ent.Comp1, ref ent.Comp2))
             return;

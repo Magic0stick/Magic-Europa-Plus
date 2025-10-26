@@ -9,7 +9,7 @@ namespace Content.Server.Shuttles.Components;
 public sealed partial class StationTransitHubComponent : Component
 {
     [DataField]
-    public ResPath Map = new("/Maps/centcomm.yml");
+    public ResPath Map = new("/Maps/_Europa/centcom_backmen.yml");
 
     [DataField]
     public EntityUid? Entity;

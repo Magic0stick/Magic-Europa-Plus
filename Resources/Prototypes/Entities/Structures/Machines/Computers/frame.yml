@@ -64,6 +64,9 @@
   - type: Tag
     tags:
     - MorphBlacklist
+  - type: InteractionVerbs # EE: Interaction Verbs
+    allowedVerbs:
+    - KnockOn
 
 - type: entity
   id: ComputerFrame

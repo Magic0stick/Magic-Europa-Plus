@@ -208,7 +208,7 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Ensures the FTL map exists and returns it.
     /// </summary>
-    private EntityUid EnsureFTLMap()
+    public EntityUid EnsureFTLMap()
     {
         var query = AllEntityQuery<FTLMapComponent>();
 
@@ -396,8 +396,8 @@ public sealed partial class ShuttleSystem
         float? startupTime = null,
         float? hyperspaceTime = null,
         string? priorityTag = null,
-        bool ignored = false, // Sunrise-Edit
-        bool deletedTrash = false) // Sunrise-Edit
+        bool ignored = false,
+        bool deletedTrash = false)
     {
         if (!TrySetupFTL(shuttleUid, component, out var hyperspace))
             return;
@@ -412,8 +412,8 @@ public sealed partial class ShuttleSystem
             _gameTiming.CurTime,
             TimeSpan.FromSeconds(hyperspace.StartupTime));
         hyperspace.PriorityTag = priorityTag;
-        hyperspace.Ignored = ignored; // Sunrise-Edit
-        hyperspace.DeleteTrash = deletedTrash; // Sunrise-Edit
+        hyperspace.Ignored = ignored;
+        hyperspace.DeleteTrash = deletedTrash;
 
         _console.RefreshShuttleConsoles(shuttleUid);
 
@@ -458,8 +458,8 @@ public sealed partial class ShuttleSystem
             _gameTiming.CurTime,
             TimeSpan.FromSeconds(hyperspace.StartupTime));
         hyperspace.PriorityTag = priorityTag;
-        hyperspace.Ignored = ignored; // Sunrise-Edit
-        hyperspace.DeleteTrash = deletedTrash; // Sunrise-Edit
+        hyperspace.Ignored = ignored;
+        hyperspace.DeleteTrash = deletedTrash;
 
         _console.RefreshShuttleConsoles(shuttleUid);
 
@@ -738,7 +738,7 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Puts everyone unbuckled on the floor, paralyzed.
     /// </summary>
-    private void DoTheDinosaur(TransformComponent xform, Vector2 throwDirection) // Sunrise-Edit
+    private void DoTheDinosaur(TransformComponent xform, Vector2 throwDirection)
     {
         // Get enumeration exceptions from people dropping things if we just paralyze as we go
         var toKnock = new ValueList<EntityUid>();
@@ -848,8 +848,8 @@ public sealed partial class ShuttleSystem
         ShuttleComponent component,
         EntityUid targetUid,
         string? priorityTag = null,
-        bool ignored = false, // Sunrise-Edit
-        bool deletedTrash = false) // Sunrise-Edit
+        bool ignored = false,
+        bool deletedTrash = false)
     {
         return TryFTLDock(shuttleUid, component, targetUid, out _, priorityTag, ignored, deletedTrash);
     }
@@ -864,8 +864,8 @@ public sealed partial class ShuttleSystem
         EntityUid targetUid,
         [NotNullWhen(true)] out DockingConfig? config,
         string? priorityTag = null,
-        bool ignored = false, // Sunrise-Edit
-        bool deletedTrash = false) // Sunrise-Edit
+        bool ignored = false,
+        bool deletedTrash = false)
     {
         config = null;
 
