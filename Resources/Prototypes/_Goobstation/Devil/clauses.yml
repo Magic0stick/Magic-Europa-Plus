@@ -283,7 +283,7 @@
       collection: Paracusia
 
 - type: clause
-  id: volumewhisper1.ogg
+  id: noise
   clauseWeight: 20
   addedComponents:
   - type: Deaf
