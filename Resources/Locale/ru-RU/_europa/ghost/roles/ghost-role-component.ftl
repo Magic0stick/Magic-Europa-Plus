@@ -21,3 +21,6 @@ ghost-role-information-morph-description = Вы - начало нового ро
 ghost-role-information-morph-rules =
     Вы [color=red][bold]Командный антагонист[/bold][/color]. Ваши намерения ясны, и они несут вред станции и её экипажу.
     Вы [bold]должны слушаться остальных морфов и помогать им[/bold] в выполнении своей задачи, пожирая всё живое на станции.
+
+ghost-role-information-diona-name = Нимфа дионы
+ghost-role-information-diona-description = Вы одно из трёх отделившихся ядер дионы. Передохните и восстановите силы для новых свершений!

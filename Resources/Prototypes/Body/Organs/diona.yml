@@ -304,6 +304,14 @@
   - type: Body
     prototype: AnimalNymphBrain
   - type: VentCrawler # goob
+#Europa-Start
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-diona-name
+    description: ghost-role-information-diona-description
+    rules: ghost-role-information-nonantagonist-rules
+  - type: GhostTakeoverAvailable
+#Europa-End
 
 - type: entity
   id: OrganDionaNymphStomach
@@ -317,6 +325,14 @@
   - type: Body
     prototype: AnimalNymphStomach
   - type: VentCrawler # goob
+#Europa-Start
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-diona-name
+    description: ghost-role-information-diona-description
+    rules: ghost-role-information-nonantagonist-rules
+  - type: GhostTakeoverAvailable
+#Europa-End
 
 - type: entity
   id: OrganDionaNymphLungs
@@ -330,3 +346,11 @@
   - type: Body
     prototype: AnimalNymphLungs
   - type: VentCrawler # goob
+#Europa-Start
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-diona-name
+    description: ghost-role-information-diona-description
+    rules: ghost-role-information-nonantagonist-rules
+  - type: GhostTakeoverAvailable
+#Europa-End
