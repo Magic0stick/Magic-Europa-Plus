@@ -1,0 +1,407 @@
+﻿- type: documentForm
+  id: OrderforProductionoftheProductserv
+  category: copier-category-Service
+  name: copier-document-OrderforProductionoftheProductserv
+  document: /DocumentForms/Order_for_Production_of_the_Product_serv.TXT
+
+- type: documentForm
+  id: ComplaintabouttheOffensesec
+  category: copier-category-Security
+  name: copier-document-ComplaintabouttheOffensesec
+  document: /DocumentForms/Complaint_about_the_Offense.TXT
+
+- type: documentForm
+  id: PermissionforCarryingaWeaponsec
+  category: copier-category-Security  
+  name: copier-document-PermissionforCarryingaWeaponsec
+  document: /DocumentForms/Permission_for_Carrying_a_Weapon.TXT
+
+- type: documentForm
+  id: OrderonParoleofthePrisonersec
+  category: copier-category-Security
+  name: copier-document-OrderonParoleofthePrisonersec
+  document: /DocumentForms/Order_on_Parole_of_the_Prisoner.TXT
+
+- type: documentForm
+  id: PermissionforSearchsec
+  category: copier-category-Security
+  name: copier-document-PermissionforSearchsec
+  document: /DocumentForms/Permission_for_Search.TXT
+
+- type: documentForm
+  id: Indictmentsec
+  category: copier-category-Security
+  name: copier-document-Indictmentsec
+  document: /DocumentForms/Indictment.TXT
+
+- type: documentForm
+  id: Verdictsec
+  category: copier-category-Security
+  name: copier-document-Verdictsec
+  document: /DocumentForms/Verdict.TXT
+
+- type: documentForm
+  id: CertificateoftheOffensesec
+  category: copier-category-Security
+  name: copier-document-CertificateoftheOffensesec
+  document: /DocumentForms/Certificate_of_the_Offense.TXT
+
+- type: documentForm
+  id: JudicialDecisionsec
+  category: copier-category-Security
+  name: copier-document-JudicialDecisionsec
+  document: /DocumentForms/Judicial_Decision.TXT
+
+- type: documentForm
+  id: PermissionforDisposaloftheBodymed
+  category: copier-category-Medbay
+  name: copier-document-PermissionforDisposaloftheBodymed
+  document: /DocumentForms/Permission_for_Disposal_of_the_Body.TXT
+
+- type: documentForm
+  id: CertificateofDeathmed
+  category: copier-category-Medbay
+  name: copier-document-CertificateofDeathmed
+  document: /DocumentForms/Certificate_of_Death.TXT
+
+- type: documentForm
+  id: RequestforPerformingEuthanasiamed
+  category: copier-category-Medbay
+  name: copier-document-RequestforPerformingEuthanasiamed
+  document: /DocumentForms/Request_for_Performing_Euthanasia.TXT
+
+- type: documentForm
+  id: OrderforMedicalInterventionmed
+  category: copier-category-Medbay
+  name: copier-document-OrderforMedicalInterventionmed
+  document: /DocumentForms/Order_for_Medical_Intervention.TXT
+
+- type: documentForm
+  id: ConclusionontheStateofHealthmed
+  category: copier-category-Medbay
+  name: copier-document-ConclusionontheStateofHealthmed
+  document: /DocumentForms/Conclusion_on_the_State_of_Health.TXT
+
+- type: documentForm
+  id: PermissionforaPrescriptionDrugmed
+  category: copier-category-Medbay
+  name: copier-document-PermissionforaPrescriptionDrugmed
+  document: /DocumentForms/Permission_for_a_Prescription_Drug.TXT
+
+- type: documentForm
+  id: ReportontheStudyoftheObjectmed
+  category: copier-category-Medbay
+  name: copier-document-ReportontheStudyoftheObjectmed
+  document: /DocumentForms/Report_on_the_Study_of_the_Object.TXT
+
+- type: documentForm
+  id: OrderforProductionoftheProductmed
+  category: copier-category-Medbay
+  name: copier-document-OrderforProductionoftheProductmed
+  document: /DocumentForms/Order_for_Production_of_the_Product.TXT
+
+- type: documentForm
+  id: RequestforPerformingConstructionWorkseng
+  category: copier-category-Engineering
+  name: copier-document-RequestforPerformingConstructionWorkseng
+  document: /DocumentForms/Request_for_Performing_Construction_Works.TXT
+
+- type: documentForm
+  id: ReportontheTechnicalConditioneng
+  category: copier-category-Engineering
+  name: copier-document-ReportontheTechnicalConditioneng
+  document: /DocumentForms/Report_on_the_Technical_Condition.TXT
+
+- type: documentForm
+  id: PermissionforConstructioneng
+  category: copier-category-Engineering
+  name: copier-document-PermissionforConstructioneng
+  document: /DocumentForms/Permission_for_Construction.TXT
+
+- type: documentForm
+  id: ReportontheStudyoftheObjectengi
+  category: copier-category-Engineering
+  name: copier-document-ReportontheStudyoftheObjectengi
+  document: /DocumentForms/Report_on_the_Study_of_the_Object_engi.TXT
+
+- type: documentForm
+  id: OrderforProductionoftheProductengi
+  category: copier-category-Engineering
+  name: copier-document-OrderforProductionoftheProductengi
+  document: /DocumentForms/Order_for_Production_of_the_Product_engi.TXT
+
+- type: documentForm
+  id: OrderonRecognitionoftheCreaturesSentiencernd
+  category: copier-category-RnD
+  name: copier-document-OrderonRecognitionoftheCreaturesSentiencernd
+  document: /DocumentForms/Order_on_Recognition_of_the_Creature's_Sentience.TXT
+
+- type: documentForm
+  id: ReportontheExperimentrnd
+  category: copier-category-RnD
+  name: copier-document-ReportontheExperimentrnd
+  document: /DocumentForms/Report_on_the_Experiment.TXT
+
+- type: documentForm
+  id: ReportontheStudyoftheObjectRnDrnd
+  category: copier-category-RnD
+  name: copier-document-ReportontheStudyoftheObjectRnDrnd
+  document: /DocumentForms/Report_on_the_Study_of_the_Object_RnD.TXT
+
+- type: documentForm
+  id: OrderforProductionoftheProductRnDrnd
+  category: copier-category-RnD
+  name: copier-document-OrderforProductionoftheProductRnDrnd
+  document: /DocumentForms/Order_for_Production_of_the_Product_RnD.TXT
+
+- type: documentForm
+  id: RequestforProvisionofDocumentscargo
+  category: copier-category-Cargo
+  name: copier-document-RequestforProvisionofDocumentscargo
+  document: /DocumentForms/Request_for_Provision_of_Documents.TXT
+
+- type: documentForm
+  id: OrderforPurchaseofArmamentcargo
+  category: copier-category-Cargo
+  name: copier-document-OrderforPurchaseofArmamentcargo
+  document: /DocumentForms/Order_for_Purchase_of_Armament.TXT
+
+- type: documentForm
+  id: OrderforPurchaseofResourcesEquipmentcargo
+  category: copier-category-Cargo
+  name: copier-document-OrderforPurchaseofResourcesEquipmentcargo
+  document: /DocumentForms/Order_for_Purchase_of_Resources_Equipment.TXT
+
+- type: documentForm
+  id: ReportonDisposalserv
+  category: copier-category-Service
+  name: copier-document-ReportonDisposalserv
+  document: /DocumentForms/Report_on_Disposal.TXT
+
+- type: documentForm
+  id: RequestforPerformingModernizationserv
+  category: copier-category-Service
+  name: copier-document-RequestforPerformingModernizationserv
+  document: /DocumentForms/Request_for_Performing_Modernization.TXT
+
+- type: documentForm
+  id: ReportontheEliminationofViolationscom
+  category: copier-category-Command
+  name: copier-document-ReportontheEliminationofViolationscom
+  document: /DocumentForms/Report_on_the_Elimination_of_Violations.TXT
+
+- type: documentForm
+  id: ReportontheWorkoftheDepartmentcom
+  category: copier-category-Command
+  name: copier-document-ReportontheWorkoftheDepartmentcom
+  document: /DocumentForms/Report_on_the_Work_of_the_Department.TXT
+
+- type: documentForm
+  id: StatementonAppointmentasActingHeadcom
+  category: copier-category-Command
+  name: copier-document-StatementonAppointmentasActingHeadcom
+  document: /DocumentForms/Statement_on_Appointment_as_Acting_Head.TXT
+
+- type: documentForm
+  id: OrderontheIntroductionofReportscom
+  category: copier-category-Command
+  name: copier-document-OrderontheIntroductionofReportscom
+  document: /DocumentForms/Order_on_the_Introduction_of_Reports.TXT
+
+- type: documentForm
+  id: DecisionontheStartoftheJudicialProcesscom
+  category: copier-category-Command
+  name: copier-document-DecisionontheStartoftheJudicialProcesscom
+  document: /DocumentForms/Decision_on_the_Start_of_the_Judicial_Process.TXT
+
+- type: documentForm
+  id: ReportontheInternalInvestigationcom
+  category: copier-category-Command
+  name: copier-document-ReportontheInternalInvestigationcom
+  document: /DocumentForms/Report_on_the_Internal_Investigation.TXT
+
+- type: documentForm
+  id: ComplaintaboutViolationofLaborOrdercom
+  category: copier-category-Command
+  name: copier-document-ComplaintaboutViolationofLaborOrdercom
+  document: /DocumentForms/Complaint_about_Violation_of_Labor_Order.TXT
+
+- type: documentForm
+  id: PermissionforUseofEquipmentcom
+  category: copier-category-Command
+  name: copier-document-PermissionforUseofEquipmentcom
+  document: /DocumentForms/Permission_for_Use_of_Equipment.TXT
+
+- type: documentForm
+  id: StatementonReceivingEquipmentcom
+  category: copier-category-Command
+  name: copier-document-StatementonReceivingEquipmentcom
+  document: /DocumentForms/Statement_on_Receiving_Equipment.TXT
+
+- type: documentForm
+  id: CertificateofAdvancedTrainingcom
+  category: copier-category-Command
+  name: copier-document-CertificateofAdvancedTrainingcom
+  document: /DocumentForms/Certificate_of_Advanced_Training.TXT
+
+- type: documentForm
+  id: Certificatecom
+  category: copier-category-Command
+  name: copier-document-Certificatecom
+  document: /DocumentForms/Certificate.TXT
+
+- type: documentForm
+  id: OrderonEncouragementcom
+  category: copier-category-Command
+  name: copier-document-OrderonEncouragementcom
+  document: /DocumentForms/Order_on_Encouragement.TXT
+
+- type: documentForm
+  id: PermissionforMovementduringaThreatcom
+  category: copier-category-Command
+  name: copier-document-PermissionforMovementduringaThreatcom
+  document: /DocumentForms/Permission_for_Movement_during_a_Threat.TXT
+
+- type: documentForm
+  id: OrderonDeprivationofAccesscom
+  category: copier-category-Command
+  name: copier-document-OrderonDeprivationofAccesscom
+  document: /DocumentForms/Order_on_Deprivation_of_Access.TXT
+
+- type: documentForm
+  id: OrderonDismissalcom
+  category: copier-category-Command
+  name: copier-document-OrderonDismissalcom
+  document: /DocumentForms/Order_on_Dismissal.TXT
+
+- type: documentForm
+  id: StatementonReceivingAccesscom
+  category: copier-category-Command
+  name: copier-document-StatementonReceivingAccesscom
+  document: /DocumentForms/Statement_on_Receiving_Access.TXT
+
+- type: documentForm
+  id: Appealcom
+  category: copier-category-Command
+  name: copier-document-Appealcom
+  document: /DocumentForms/Appeal.TXT
+
+- type: documentForm
+  id: StatementonEmploymentcom
+  category: copier-category-Command
+  name: copier-document-StatementonEmploymentcom
+  document: /DocumentForms/Statement_on_Employment.TXT
+
+- type: documentForm
+  id: StatementonDismissalcom
+  category: copier-category-Command
+  name: copier-document-StatementonDismissalcom
+  document: /DocumentForms/Statement_on_Dismissal.TXT
+
+- type: documentForm
+  id: ReportontheWorkoftheEmployeecom
+  category: copier-category-Command
+  name: copier-document-ReportontheWorkoftheEmployeecom
+  document: /DocumentForms/Report_on_the_Work_of_the_Employee.TXT
+
+- type: documentForm
+  id: ResponseoftheSectoralHeadquartersoftheCentralCommitteecentcom
+  category: copier-category-CentralCommand
+  name: copier-document-ResponseoftheSectoralHeadquartersoftheCentralCommitteecentcom
+  document: /DocumentForms/Response_of_the_Sectoral_Headquarters_of_the_Central_Committee.TXT
+
+- type: documentForm
+  id: OrderoftheSectoralHeadquartersoftheCentralCommitteecentcom
+  category: copier-category-CentralCommand
+  name: copier-document-OrderoftheSectoralHeadquartersoftheCentralCommitteecentcom
+  document: /DocumentForms/Order_of_the_Sectoral_Headquarters_of_the_Central_Committee.TXT
+
+- type: documentForm
+  id: StandardFormoftheCentralCommitteecentcom
+  category: copier-category-CentralCommand
+  name: copier-document-StandardFormoftheCentralCommitteecentcom
+  document: /DocumentForms/Standard_Form_of_the_Central_Committee.TXT
+
+- type: documentForm
+  id: RequestforSummoningMembersoftheCentralCommitteeDSOcentcom
+  category: copier-category-CentralCommand
+  name: copier-document-RequestforSummoningMembersoftheCentralCommitteeDSOcentcom
+  document: /DocumentForms/Request_for_Summoning_Members_of_the_Central_Committee_DSO.TXT
+
+- type: documentForm
+  id: RequestforEvacuationShuttlecom
+  category: copier-category-Command
+  name: copier-document-RequestforEvacuationShuttlecom
+  document: /DocumentForms/Request_for_Evacuation_Shuttle.TXT
+
+- type: documentForm
+  id: RequestforShuttleRegistrationcom
+  category: copier-category-Command
+  name: copier-document-RequestforShuttleRegistrationcom
+  document: /DocumentForms/Request_for_Shuttle_Registration.TXT
+
+- type: documentForm
+  id: OrderforSpecialEquipmentcom
+  category: copier-category-Command
+  name: copier-document-OrderforSpecialEquipmentcom
+  document: /DocumentForms/Order_for_Special_Equipment.TXT
+
+- type: documentForm
+  id: ReportontheSituationcom
+  category: copier-category-Command
+  name: copier-document-ReportontheSituationcom
+  document: /DocumentForms/Report_on_the_Situation.TXT
+
+- type: documentForm
+  id: RequestforEstablishingThreatLevelcom
+  category: copier-category-Command
+  name: copier-document-RequestforEstablishingThreatLevelcom
+  document: /DocumentForms/Request_for_Establishing_Threat_Level.TXT
+
+- type: documentForm
+  id: ReportontheMeetingofHeadscom
+  category: copier-category-Command
+  name: copier-document-ReportontheMeetingofHeadscom
+  document: /DocumentForms/Report_on_the_Meeting_of_Heads.TXT
+
+- type: documentForm
+  id: RequestforChangeofSalarycom
+  category: copier-category-Command
+  name: copier-document-RequestforChangeofSalarycom
+  document: /DocumentForms/Request_for_Change_of_Salary.TXT
+
+- type: documentForm
+  id: RequestforOutofturnEmploymentcom
+  category: copier-category-Command
+  name: copier-document-RequestforOutofturnEmploymentcom
+  document: /DocumentForms/Request_for_Out_of_turn_Employment.TXT
+
+- type: documentForm
+  id: RequestforPromotioncom
+  category: copier-category-Command
+  name: copier-document-RequestforPromotioncom
+  document: /DocumentForms/Request_for_Promotion.TXT
+
+- type: documentForm
+  id: PermissionforExpansionofMarriagecom
+  category: copier-category-Command
+  name: copier-document-PermissionforExpansionofMarriagecom
+  document: /DocumentForms/Permission_for_Expansion_of_Marriage.TXT
+
+- type: documentForm
+  id: CertificateofDivorcecom
+  category: copier-category-Command
+  name: copier-document-CertificateofDivorcecom
+  document: /DocumentForms/Certificate_of_Divorce.TXT
+
+- type: documentForm
+  id: CertificateofMarriagecom
+  category: copier-category-Command
+  name: copier-document-CertificateofMarriagecom
+  document: /DocumentForms/Certificate_of_Marriage.TXT
+
+- type: documentForm
+  id: ReportontheStudyoftheObjectserv
+  category: copier-category-Service
+  name: copier-document-ReportontheStudyoftheObjectserv
+  document: /DocumentForms/Report_on_the_Study_of_the_Object_serv.TXT

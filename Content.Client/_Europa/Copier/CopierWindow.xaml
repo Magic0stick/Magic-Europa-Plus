@@ -1,7 +1,7 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     Title="{Loc 'copier-ui-title'}"
-    MinSize="850 525"
+    MinSize="950 525"
     Resizable="True">
     <BoxContainer Orientation="Vertical">
         <SplitContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" Margin="7 0">
