@@ -1,0 +1,77 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: CopierMachine
+  name: copier machine
+  description: Eto copier machine.
+  components:
+  - type: Sprite
+    sprite: _Europa/Structures/Machines/copier_machine.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: icon
+      map: [ "enum.CopierVisuals.VisualState" ]
+    - state: closed
+      map: [ "enum.StorageVisualLayers.Door" ]
+  - type: Icon
+    sprite: _Europa/Structures/Machines/copier_machine.rsi
+    state: icon
+  - type: EntityStorageVisuals
+    stateDoorClosed: closed
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.CopierVisuals.VisualState:
+          True: { state: idle }
+          False: { state: icon }
+      enum.CopierVisuals.VisualState:
+        enum.CopierVisuals.VisualState:
+          Printing: { state: printing }
+          Inserting: { state: inserting }
+  - type: Appearance
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 150
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: ActivatableUI
+    key: enum.CopierUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.CopierUiKey.Key:
+        type: CopierBoundUi
+  - type: StationAiWhitelist
+  - type: ApcPowerReceiver
+    powerLoad: 250
+  - type: Copier
+    paperSlot:
+      insertSound: /Audio/Machines/scanning.ogg
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        components:
+        - CargoSlip
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      paper_slot: !type:ContainerSlot
+      entity_storage: !type:Container
+  - type: EntityStorage
+    capacity: 10
+    airtight: false
+    openOnMove: false
+    whitelist:
+      components:
+      - Paper
+  - type: RequireProjectileTarget
+  - type: Climbable
