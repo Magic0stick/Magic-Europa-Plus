@@ -48,10 +48,12 @@
     CocoaSeeds: 3
     CornSeeds: 5
     CottonSeeds: 5
+    CoffeeArabicaSeeds: 5 # EuropaBotany-Edit
     EggplantSeeds: 5
     GalaxythistleSeeds: 3
     GarlicSeeds: 3
     GrapeSeeds: 5
+    GeraniumSeeds: 5 # EuropaBotany-Edit
     LemonSeeds: 5
     LimeSeeds: 5
     PineappleSeeds: 5
@@ -66,13 +68,16 @@
     PotatoSeeds: 5
     PumpkinSeeds: 5
     RiceSeeds: 5
+    RedroseSeeds: 5 # EuropaBotany-Edit
     SoybeanSeeds: 5
     SugarcaneSeeds: 5
+    SunflowerSeeds: 5 # EuropaBotany-Edit
     TeaPlantSeeds: 5
     TomatoSeeds: 5
     TowercapSeeds: 5
     WheatSeeds: 5
     WatermelonSeeds: 5
+    WhiteroseSeeds: 5 # EuropaBotany-Edit
   contrabandInventory:
     TobaccoSeeds: 2
     FoodSnackSemki: 2

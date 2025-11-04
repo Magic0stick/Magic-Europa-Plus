@@ -39,7 +39,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem XformSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
-    public const float FTLRange = 64f; // Frontier edit
+    public const float FTLRange = 256f;
     public const float FTLBufferRange = 8f;
     public const float TileDensityMultiplier = 0.5f;
 
@@ -83,6 +83,9 @@ public abstract partial class SharedShuttleSystem : EntitySystem
         if (!TryComp<FTLDestinationComponent>(mapUid, out var destination) || !destination.Enabled)
             return false;
 
+        if (_whitelistSystem.IsWhitelistPass(destination.Whitelist, shuttleUid))
+            return true;
+
         if (destination.RequireCoordinateDisk)
         {
             if (!TryComp<ItemSlotsComponent>(consoleUid, out var slot))
@@ -97,22 +100,26 @@ public abstract partial class SharedShuttleSystem : EntitySystem
 
             if (itemSlot.Item is { Valid: true } disk)
             {
-                ShuttleDestinationCoordinatesComponent? diskCoordinates = null;
-                if (!Resolve(disk, ref diskCoordinates))
+                if (!TryComp(disk, out ShuttleDestinationCoordinatesComponent? diskComp))
+                    return false;
+
+                var diskCoords = diskComp.Destination;
+
+                if (diskCoords == null || !TryComp<FTLDestinationComponent>(diskCoords.Value, out var diskDestination))
                 {
                     return false;
                 }
 
-                var diskCoords = diskCoordinates.Destination;
-
-                if (diskCoords == null || !TryComp<FTLDestinationComponent>(diskCoords.Value, out var diskDestination) || diskDestination != destination)
+                if (diskDestination.Whitelist != null && destination.Whitelist != null
+                    && diskDestination.Whitelist == destination.Whitelist)
                 {
-                    return false;
+                    return true;
                 }
-            }
-            else
-            {
-                return false;
+
+                if (diskDestination == destination)
+                {
+                    return true;
+                }
             }
         }
 

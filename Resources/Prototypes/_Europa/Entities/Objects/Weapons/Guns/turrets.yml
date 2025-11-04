@@ -5,6 +5,6 @@
   components:
   - type: NpcFactionMember
     factions:
-    - InteQHostile
+    - InteQ
   - type: BallisticAmmoProvider
     capacity: 1500 # Was 500

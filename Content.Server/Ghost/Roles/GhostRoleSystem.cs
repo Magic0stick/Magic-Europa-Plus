@@ -641,6 +641,7 @@ public sealed class GhostRoleSystem : EntitySystem
                 : TimeSpan.MinValue;
 
             var whitelisted = false;
+
             if (role.JobProto != null && _prototype.TryIndex(role.JobProto, out var jobPrototype))
                 whitelisted |= jobPrototype.Whitelisted;
             if (TryComp(uid, out MindRoleComponent? mindRole))
@@ -651,6 +652,7 @@ public sealed class GhostRoleSystem : EntitySystem
                     whitelisted |= antagProto.Whitelisted;
             }
 
+            whitelisted |= role.Whitelisted;
 
             roles.Add(new GhostRoleInfo
             {

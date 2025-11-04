@@ -49,7 +49,6 @@
     stateBaseClosed: cabinet
     stateDoorOpen: cabinet_open
     stateDoorClosed: cabinet_door
-
   - type: AccessReader
     access: [["Bar"]]
   - type: EntityStorage
@@ -63,6 +62,8 @@
       Steel: 25
   - type: Paintable
     group: null # not shaped like other lockers
+#  - type: Occluder
+#    boundingBox: "-0.34,-0.38,0.315,0.37"
 
 # Basic
 - type: entity

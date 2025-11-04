@@ -125,6 +125,7 @@ entities:
     - type: Transform
       pos: -0.060707748,-0.65287584
       parent: invalid
+    - type: ErtShuttle
     - type: MapGrid
       chunks:
         0,0:

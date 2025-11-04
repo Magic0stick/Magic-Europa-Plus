@@ -86,7 +86,7 @@ entities:
       name: NT-Dart
     - type: Transform
       pos: 0.55555725,0.5
-
+    - type: CentCommShuttle
     - type: MapGrid
       chunks:
         -1,-1:

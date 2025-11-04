@@ -244,3 +244,36 @@
   - DuoAbductorRoundstart
   - SubGamemodesRule
   - SecretPlusRampingMid
+
+- type: gamePreset
+  id: Heretic
+  alias:
+  - heretic
+  - heretics
+  name: heretic-roundend-name
+  description: heretic-gamemode-description
+  showInVote: false
+  rules:
+  - Heretic
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: OopsAllThieves
+  alias:
+  - oopsallthieves
+  - allthieves
+  - thieves
+  name: oops-all-thieves-title
+  description: oops-all-thieves-description
+  showInVote: false
+  rules:
+    - OopsAllThieves
+    - TraitorSubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation

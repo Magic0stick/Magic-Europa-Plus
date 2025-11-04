@@ -2,6 +2,7 @@ using Content.Server._Europa.BlockSelling;
 using Content.Server.GameTicking;
 using Content.Server.Maps;
 using Content.Server.Shuttles.Components;
+using Content.Server.Station.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -15,42 +16,44 @@ public sealed partial class StationCentCommSystem : EntitySystem
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly StationSystem _station = default!;
 
     private ISawmill _sawmill = default!;
+    private bool _fuckMe = false;
 
     public override void Initialize()
     {
         _sawmill = Logger.GetSawmill("station.centcomm");
-        SubscribeLocalEvent<StationCentcommComponent, ComponentShutdown>(OnCentcommShutdown);
-        SubscribeLocalEvent<StationCentcommComponent, ComponentInit>(OnCentcommInit);
+        SubscribeLocalEvent<StationCentCommComponent, ComponentShutdown>(OnCentCommShutdown);
+        SubscribeLocalEvent<StationCentCommComponent, ComponentInit>(OnCentCommInit);
     }
 
-    private void OnCentcommShutdown(EntityUid uid, StationCentcommComponent component, ComponentShutdown args)
+    private void OnCentCommShutdown(EntityUid uid, StationCentCommComponent component, ComponentShutdown args)
     {
-        QueueDel(component.Entity);
-        component.Entity = EntityUid.Invalid;
+        QueueDel(component.StationEntity);
+        component.StationEntity = EntityUid.Invalid;
 
         if (_map.MapExists(component.MapId))
             _map.DeleteMap(component.MapId);
 
         component.MapId = MapId.Nullspace;
+        _fuckMe = false;
     }
 
-    private void OnCentcommInit(EntityUid uid, StationCentcommComponent component, ComponentInit args)
+    private void OnCentCommInit(EntityUid uid, StationCentCommComponent component, ComponentInit args)
     {
-        // Post mapinit? fancy
-        if (TryComp<TransformComponent>(component.Entity, out var xform))
-        {
-            component.MapId = xform.MapID;
+        if (_fuckMe)
             return;
-        }
 
-        AddCentcomm(component);
+        if (_map.MapExists(component.MapId) || component.StationEntity.Valid)
+            return;
+
+        AddCentComm(component);
     }
 
-    private void AddCentcomm(StationCentcommComponent component)
+    private void AddCentComm(StationCentCommComponent component)
     {
-        var query = AllEntityQuery<StationCentcommComponent>();
+        var query = AllEntityQuery<StationCentCommComponent>();
 
         while (query.MoveNext(out var otherComp))
         {
@@ -58,6 +61,7 @@ public sealed partial class StationCentCommSystem : EntitySystem
                 continue;
 
             component.MapId = otherComp.MapId;
+            component.StationEntity = otherComp.StationEntity;
             return;
         }
 
@@ -73,11 +77,17 @@ public sealed partial class StationCentCommSystem : EntitySystem
                 EnsureComp<BlockSellingStationComponent>(uid);
             }
 
+            component.MapId = mapId;
+
+            if (_station.GetStationInMap(mapId) is { } station)
+                component.StationEntity = station;
+
             _map.InitializeMap(mapId);
+            _fuckMe = true;
         }
         else
         {
-            _sawmill.Warning("No Centcomm map found, skipping setup.");
+            _sawmill.Warning("No CentComm map found, skipping setup.");
         }
     }
 }

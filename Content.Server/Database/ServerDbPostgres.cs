@@ -127,6 +127,18 @@ namespace Content.Server.Database
             return ConvertBan(ban);
         }
 
+        public override async Task<ServerUnbanDef?> GetServerUnbanAsync(int id)
+        {
+            await using var db = await GetDbImpl();
+
+            var query = db.PgDbContext.Unban
+                .Where(p => p.Id == id);
+
+            var ban = await query.SingleOrDefaultAsync();
+
+            return ConvertUnbanWtf(ban);
+        }
+
         public override async Task<ServerBanDef?> GetServerBanAsync(
             IPAddress? address,
             NetUserId? userId,
@@ -328,6 +340,25 @@ namespace Content.Server.Database
 
             return new ServerUnbanDef(
                 unban.Id,
+                aUid,
+                unban.UnbanTime);
+        }
+
+        private static ServerUnbanDef? ConvertUnbanWtf(ServerUnban? unban)
+        {
+            if (unban == null)
+            {
+                return null;
+            }
+
+            NetUserId? aUid = null;
+            if (unban.UnbanningAdmin is {} aGuid)
+            {
+                aUid = new NetUserId(aGuid);
+            }
+
+            return new ServerUnbanDef(
+                unban.BanId,
                 aUid,
                 unban.UnbanTime);
         }

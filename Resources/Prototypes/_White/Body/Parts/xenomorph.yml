@@ -20,7 +20,7 @@
         Quantity: 10
   - type: Woundable
     integrity: 750
-    integrityCap: 750
+    integrityCap: 1000 # XenomorphQueen immortal moment
     thresholds:
       Minor: 700
       Moderate: 600

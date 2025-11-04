@@ -55,7 +55,9 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ITaskManager _taskManager = default!;
     [Dependency] private readonly UserDbDataManager _userDbData = default!;
+    [Dependency] private readonly IPlayerLocator _locator = default!;
 
+    private GameTicker _gameTicker = default!;
     private ISawmill _sawmill = default!;
 
     public const string SawmillId = "admin.bans";
@@ -68,16 +70,26 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     public void Initialize()
     {
         _netManager.RegisterNetMessage<MsgRoleBans>();
+        _gameTicker = _systems.GetEntitySystem<GameTicker>();
 
         _db.SubscribeToJsonNotification<BanNotificationData>(
             _taskManager,
             _sawmill,
             BanNotificationChannel,
             ProcessBanNotification,
-            OnDatabaseNotificationEarlyFilter);
+            OnBanDatabaseNotificationEarlyFilter);
+
+        _db.SubscribeToJsonNotification<UnbanNotificationData>(
+            _taskManager,
+            _sawmill,
+            UnbanNotificationChannel,
+            ProcessUnbanNotification,
+            OnUnbanDatabaseNotificationEarlyFilter);
 
         _userDbData.AddOnLoadPlayer(CachePlayerData);
         _userDbData.AddOnPlayerDisconnect(ClearPlayerData);
+
+        _cfg.OnValueChanged(CCVars.DiscordBanWebhook, OnWebhookChanged, true);
     }
 
     private async Task CachePlayerData(ICommonSession player, CancellationToken cancel)

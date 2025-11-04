@@ -39,6 +39,7 @@ entities:
       rot: -0.000744084594771266 rad
       pos: -0.53681815,-0.61734354
       parent: invalid
+    - type: CentCommShuttle
     - type: MapGrid
       chunks:
         0,0:

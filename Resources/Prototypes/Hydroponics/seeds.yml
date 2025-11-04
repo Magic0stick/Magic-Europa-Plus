@@ -569,6 +569,7 @@
     - Log
   mutationPrototypes:
     - steelcap
+    - glasscap # EuropaBotany-Add
   lifespan: 80
   maturation: 15
   ligneous: true
@@ -589,7 +590,9 @@
   plantRsi: Objects/Specific/Hydroponics/steelcap.rsi
   packetPrototype: SteelcapSeeds
   productPrototypes:
-    - SteelLog
+  - SteelLog
+  mutationPrototypes: # EuropaBotany-Add
+  - plaststeelcap # EuropaBotany-Add
   lifespan: 80
   maturation: 15
   ligneous: true
@@ -910,6 +913,7 @@
       Max: 15
       PotencyDivisor: 10
 
+
 - type: seed
   id: onion
   name: seeds-onion-name
@@ -1036,6 +1040,7 @@
     - LeavesCannabis
   mutationPrototypes:
     - rainbowCannabis
+    - CannabisVita # EuropaBotany-Add
   harvestRepeat: Repeat
   lifespan: 75
   maturation: 8
@@ -1306,7 +1311,7 @@
   name: seeds-lily-name
   noun: seeds-noun-seeds
   displayName: seeds-lily-display-name
-  plantRsi: Objects/Specific/Hydroponics/lily.rsi
+  plantRsi: _EuropaBotany/Objects/Specific/Hydroponics/lily.rsi # EuropaBotany-Edit
   packetPrototype: LilySeeds
   productPrototypes:
     - FoodLily
@@ -1404,6 +1409,8 @@
   packetPrototype: AmbrosiaDeusSeeds
   productPrototypes:
     - FoodAmbrosiaDeus
+  mutationPrototypes: # EuropaBotany-Add
+    - AmbrosiaGaia # EuropaBotany-Add
   lifespan: 25
   maturation: 10
   production: 3
@@ -1725,6 +1732,7 @@
     - FoodWatermelon
   mutationPrototypes:
     - holymelon
+    - Barrelmelon # EuropaBotany-Add
   lifespan: 55
   maturation: 12
   production: 3

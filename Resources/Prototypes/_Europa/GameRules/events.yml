@@ -67,7 +67,7 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 7
+    weight: 4
     duration: 1
     minimumPlayers: 15
     earliestStart: 15
@@ -86,7 +86,7 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 7
+    weight: 4
     duration: 1
     minimumPlayers: 12
     earliestStart: 20

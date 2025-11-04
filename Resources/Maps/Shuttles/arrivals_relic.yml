@@ -15,6 +15,7 @@ entities:
     - type: Transform
       pos: -2.203125,-0.5625
       parent: invalid
+    - type: CentCommShuttle
     - type: MapGrid
       chunks:
         0,0:

@@ -38,7 +38,7 @@
   id: globalAntagonistRevenant
   name: global-antagonist-revenant-name
   description: global-antagonist-revenant-description
-  weight: 6
+  weight: 16
 
 - type: antagonist
   id: globalAntagonistSlime
@@ -74,7 +74,7 @@
   id: globalAntagonistBlob
   name: global-antagonist-blob-name
   description: global-antagonist-blob-description
-  weight: 12
+  weight: 18
 
 - type: antagonist
   id: globalAntagonistXenomorph
@@ -92,25 +92,25 @@
   id: globalAntagonistBingle
   name: global-antagonist-bingle-name
   description: global-antagonist-bingle-description
-  weight: 15
+  weight: 17
 
 - type: antagonist
   id: globalAntagonistCorticalBorer
   name: global-antagonist-cortical-borer-name
   description: global-antagonist-cortical-borer-description
-  weight: 16
+  weight: 6
 
 - type: antagonist
   id: globalAntagonistMorph
   name: global-antagonist-morph-name
   description: global-antagonist-morph-description
-  weight: 17
+  weight: 15
 
 - type: antagonist
   id: globalAntagonistDevil
   name: global-antagonist-devil-name
   description: global-antagonist-devil-description
-  weight: 18
+  weight: 12
 
 - type: antagonist
   id: globalAntagonistAbductor
