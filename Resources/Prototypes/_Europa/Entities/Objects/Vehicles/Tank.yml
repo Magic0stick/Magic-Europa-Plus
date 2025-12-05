@@ -1,0 +1,90 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseVehicle
+  id: VehicleTankBase
+  name: Танк
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Europa/Objects/Vehicles/Tank.rsi
+    layers:
+    - state: icon
+    netsync: false
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 3
+        density: 100
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+        hard: true
+  - type: Vehicle
+    renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
+    requiredHands: 1
+    hornSound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+  - type: MovementSpeedModifier
+    weightlessModifier: 0
+    acceleration: 1
+    friction: 1
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - BikeHorn
+  - type: ContainerContainer
+    containers:
+      Tank_container: !type:Container
+  - type: ExtendedContainer
+    containerName: Tank_container
+    deleteContentsOnBreak: false
+    capacity: 6
+  - type: DamageOnCollide
+    damage:
+      types:
+        Blunt: 314159
+        Slash: 314159
+        Piercing: 314159
+    IgnoreResistances: true
+    requiredVelocity: 2
+  - type: MovementIgnoreGravity
+  - type: Damageable
+    damageContainer: ClowncarDamageContainer
+    damageModifierSet: Metallic
+  - type: TankEnter
+#  - type: Jukebox
+#  - type: ActivatableUI
+#    key: enum.JukeboxUiKey.Key
+#  - type: UserInterface
+#    interfaces:
+#      enum.JukeboxUiKey.Key:
+#        type: JukeboxBoundUserInterface
+
+- type: entity
+  parent: VehicleTankBase
+  id: VehicleTankAntag
+  description: How someone could even fit in there is byond me.
+  components:
+  - type: ExtendedContainer
+    containerName: Tank_container
+    deleteContentsOnBreak: false
+    capacity: 50
+
