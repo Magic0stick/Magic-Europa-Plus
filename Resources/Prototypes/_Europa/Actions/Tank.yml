@@ -1,0 +1,13 @@
+
+- type: entity
+  parent: BaseAction
+  id: ActionControlTank
+  name: Take Control
+  description: Начать управление танком
+  components:
+  - type: Action
+    icon:
+      sprite: _Europa/Interface/Actions/borer.rsi
+      state: borer_control
+  - type: InstantAction
+    event: !type:TankTakeControlEvent

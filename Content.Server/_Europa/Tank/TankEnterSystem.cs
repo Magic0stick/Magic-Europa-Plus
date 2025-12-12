@@ -1,3 +1,4 @@
+using Content.Shared._Europa.Tank;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.MedicalScanner;
@@ -25,7 +26,7 @@ public sealed class TankEnterSystem : EntitySystem
     /// <inheritdoc/>
 
     [Dependency] protected readonly SharedContainerSystem Container = default!;
-
+    [Dependency] protected readonly SharedActionsSystem Actions = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminlogger = default!;
 
     public override void Initialize()
@@ -33,7 +34,7 @@ public sealed class TankEnterSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<TankEnterComponent, GetVerbsEvent<AlternativeVerb>>(AddTankVerb);
         SubscribeLocalEvent<TankEnterComponent, ComponentInit>(OnComponentInit);
-
+        SubscribeLocalEvent(TankEnterComponent, TankTakeControlEvent>(GetOutTank));
     }
 
     private void OnComponentInit(EntityUid uid, TankEnterComponent component, ComponentInit args)
@@ -58,20 +59,14 @@ public sealed class TankEnterSystem : EntitySystem
     }
 
 
-    public void EnterToTank(EntityUid ent, EntityUid target)
+    public void EnterToTank(EntityUid uid, EntityUid target)
     {
 
-        var uid = ent;
-
-        // Make sure the target has the TankEnterComponent
-        _adminlogger.Add(LogType.Action,
-            LogImpact.Extreme,
-            $"да оно верное {ToPrettyString(uid)} пытаюсь пихнуть в  {ToPrettyString(target)}");
         if (!TryComp<TankEnterComponent>(target, out var chairComp))
             return;
 
 
-        // Insert the entity that called the action into the container of the target's TankEnterComponent
+        // пытаемся запинуть
         try
         {
             Container.Insert(uid, chairComp.SeatContainer);
@@ -93,5 +88,16 @@ public sealed class TankEnterSystem : EntitySystem
             _adminlogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(uid)} не смог запинуть в {ToPrettyString(target)} потому что  {safeData.ErrorMessage}");
             return;
         }
+        Actions.AddAction(uid, chairComp.ControlAction);
+    }
+
+    public void GetOutTank(EntityUid owner, EntityUid getoutuid)
+    {
+        if (!TryComp<TankEnterComponent>(getoutuid, out var component))
+            return;
+
+        if (Container.RemoveEntity(owner, getoutuid))
+            Actions.RemoveAction(owner, component.ControlAction);
+
     }
 }

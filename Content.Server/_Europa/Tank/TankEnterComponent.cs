@@ -12,4 +12,5 @@ public sealed partial class TankEnterComponent : Component
     /// </summary>
     public Container SeatContainer = default!;
 
+    public string? ControlAction = "ActionControlTank";
 }
